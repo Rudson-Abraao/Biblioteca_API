@@ -12,8 +12,11 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository repository;
 
+
+
     public void cadastrarUsuario(DadosUsuarioCadastro dados) {
         var usuarioParaCadastro = new Usuario(dados.nome(),dados.email());
+
         repository.save(usuarioParaCadastro);
     }
 }
