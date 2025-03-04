@@ -25,25 +25,21 @@ public class AlugadoService {
         return alugadoRepository.findAll(paginacao).map(livroAlugado -> new DadosLivroAlugado(livroAlugado));
     }
 
-    public void devolucaoLivro(Long id) {
-        var livroAlugado = alugadoRepository.findById(id);
-
-        if (livroAlugado.isPresent()) {
-            var livroEncontrado = livroAlugado.get();
-            livroEncontrado.getLivro().setAlugado(false);
-            alugadoRepository.delete(livroEncontrado);
-
-            var livroDesejado = desejoRepository.livroDesejado(livroEncontrado.getLivro().getId());
-            livroDesejado.stream().forEach(desejo -> emailService.enviarEmail(desejo.getUsuario().getEmail(),"Livro disponivel!","Olá, " + desejo.getUsuario().getNome() + ", o livro " + desejo.getLivro().getTitulo() + " está disponivel para aluguel."));
-            
-
-//            if (livroDesejado.isPresent()) {
-//                var desejo = livroDesejado.get();
-//                emailService.enviarEmail(desejo.getUsuario().getEmail(),"Livro disponivel!","Olá, " + desejo.getUsuario().getNome() + ", o livro " + desejo.getLivro().getTitulo() + " está disponivel para aluguel.");
-//            }
-
-        }
-
-
-    }
+//    public void devolucaoLivro(Long id) {
+//        var livroAlugado = alugadoRepository.findById(id);
+//
+//        if (livroAlugado.isPresent()) {
+//            var livroEncontrado = livroAlugado.get();
+//            livroEncontrado.getLivro().setAlugado(false);
+//            alugadoRepository.delete(livroEncontrado);
+//
+//            var livroDesejado = desejoRepository.livroDesejado(livroEncontrado.getLivro().getId());
+//            livroDesejado.stream().forEach(desejo -> emailService.enviarEmail(desejo.getUsuario().getEmail(),"Livro disponivel!","Olá, " + desejo.getUsuario().getNome() + ", o livro " + desejo.getLivro().getTitulo() + " está disponivel para aluguel."));
+//
+//
+//
+//        }
+//
+//
+//    }
 }

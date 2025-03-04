@@ -12,6 +12,7 @@ public class Livro {
     private String autor;
     @Enumerated(EnumType.STRING)
     private Genero genero;
+    private String sinopse;
     private Boolean alugado = false;
 
     public Long getId() {
@@ -34,10 +35,13 @@ public class Livro {
         return alugado;
     }
 
-    public Livro(String titulo, String autor, String genero) {
+    public String getSinopse() { return sinopse; }
+
+    public Livro(String titulo, String autor, String genero, String sinopse) {
         this.titulo = titulo;
         this.autor = autor;
         this.genero = Genero.fromString(genero);
+        this.sinopse = sinopse;
     }
 
     public Livro() {}

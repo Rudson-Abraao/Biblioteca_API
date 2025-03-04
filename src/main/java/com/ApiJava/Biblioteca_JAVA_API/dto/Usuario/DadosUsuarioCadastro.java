@@ -1,6 +1,12 @@
 package com.ApiJava.Biblioteca_JAVA_API.dto.Usuario;
 
 
-public record DadosUsuarioCadastro(String nome, String email) {
+import jakarta.validation.constraints.NotBlank;
+
+public record DadosUsuarioCadastro(
+        @NotBlank
+        String nome,
+        @NotBlank
+        String email) {
 
 }

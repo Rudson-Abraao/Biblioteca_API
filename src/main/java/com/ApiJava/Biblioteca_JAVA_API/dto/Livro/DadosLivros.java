@@ -8,9 +8,10 @@ public record DadosLivros(
         String titulo,
         String autor,
         Genero genero,
+        String sinopse,
         Boolean alugado
 ) {
     public DadosLivros(Livro livro) {
-        this(livro.getId(), livro.getTitulo(), livro.getAutor(),livro.getGenero(),livro.getAlugado());
+        this(livro.getId(), livro.getTitulo(), livro.getAutor(),livro.getGenero(),livro.getSinopse(),livro.getAlugado());
     }
 }

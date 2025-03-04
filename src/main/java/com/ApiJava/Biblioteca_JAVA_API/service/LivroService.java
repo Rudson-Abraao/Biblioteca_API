@@ -13,6 +13,7 @@ import com.ApiJava.Biblioteca_JAVA_API.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,13 +33,16 @@ public class LivroService {
     @Autowired
     DesejoRepository desejoRepository;
 
+    @Autowired
+    EmailService emailService;
+
     public Page<DadosLivros> pegarTodosLivros(Pageable paginacao) {
         return repository.findAll(paginacao).map(livro -> new DadosLivros(livro));
 
     }
 
     public void cadastrarLivro(List<DadosCadastroLivro> dados) {
-        var livrosParaCadastro = dados.stream().map(l -> new Livro(l.titulo(), l.autor(), l.genero())).toList();
+        var livrosParaCadastro = dados.stream().map(l -> new Livro(l.titulo(), l.autor(), l.genero(), l.sinopse())).toList();
         repository.saveAll(livrosParaCadastro);
     }
 
@@ -55,18 +59,34 @@ public class LivroService {
         var livro = repository.findById(id);
         var usuario = usuarioRepository.buscaUsuario(dadosUsuario.emailUsuario());
 
-        System.out.println(livro);
-        System.out.println(usuario);
-
         if (livro.isPresent() && usuario.isPresent()){
             var livroAlugado = livro.get();
             livroAlugado.setAlugado(true);
             System.out.println(livroAlugado.getTitulo());
             var usuarioAlugando = usuario.get();
-
             alugadoRepository.save(new Alugado(livroAlugado,usuarioAlugando));
 
+            emailService.emailLivroalugado(livroAlugado);
+
+            }
+
+    }
+
+    public void devolucaoLivro(Long id) {
+        var aluguel = alugadoRepository.findById(id);
+
+        if (aluguel.isPresent()) {
+            var aluguelEncontrado = aluguel.get();
+            var aluguelLivro = aluguel.get().getLivro();
+            aluguelLivro.setAlugado(false);
+            alugadoRepository.delete(aluguelEncontrado);
+
+            emailService.emailLivroDevolvido(aluguelLivro);
+
+
+
         }
+
 
     }
 
@@ -82,4 +102,7 @@ public class LivroService {
 
         }
     }
+
+
+
 }

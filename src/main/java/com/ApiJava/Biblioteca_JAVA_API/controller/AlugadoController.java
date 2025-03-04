@@ -6,6 +6,7 @@ import com.ApiJava.Biblioteca_JAVA_API.dto.Livro.DadosLivros;
 import com.ApiJava.Biblioteca_JAVA_API.repository.AlugadoRepository;
 import com.ApiJava.Biblioteca_JAVA_API.service.AlugadoService;
 import com.ApiJava.Biblioteca_JAVA_API.service.EmailService;
+import com.ApiJava.Biblioteca_JAVA_API.service.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,6 +30,9 @@ public class AlugadoController {
     @Autowired
     EmailService emailService;
 
+    @Autowired
+    LivroService livroService;
+
     @GetMapping
     public ResponseEntity<Page<DadosLivros>>  livrosAlugados(Pageable paginacao){
         var page = service.listarLivrosAlugados(paginacao);
@@ -36,13 +40,21 @@ public class AlugadoController {
         return ResponseEntity.ok(page);
     }
 
-    @PostMapping
+    @PostMapping("/devolucao")
     @Transactional
-    public ResponseEntity devolveLivro(@RequestBody DadosLivroDevolucao dadosLivroDevolucao ){
-        service.devolucaoLivro(dadosLivroDevolucao.id());
+    public ResponseEntity devolveLivro (@RequestBody DadosLivroDevolucao dadosLivroDevolucao ){
+        livroService.devolucaoLivro(dadosLivroDevolucao.id());
 
         return ResponseEntity.noContent().build();
     }
+
+//    @PostMapping
+//    @Transactional
+//    public ResponseEntity devolveLivro(@RequestBody DadosLivroDevolucao dadosLivroDevolucao ){
+//        service.devolucaoLivro(dadosLivroDevolucao.id());
+//
+//        return ResponseEntity.noContent().build();
+//    }
 
 
 

@@ -11,6 +11,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface DesejoRepository extends JpaRepository<Desejo, Long> {
-    @Query(value = "select * from lista_de_desejos where livro_id = 10",nativeQuery = true)
+    @Query(value = "select * from lista_de_desejos where livro_id = :livroId",nativeQuery = true)
     List<Desejo> livroDesejado(@Param("livroId") Long id);
 }

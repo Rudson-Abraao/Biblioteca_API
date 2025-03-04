@@ -1,6 +1,7 @@
 package com.ApiJava.Biblioteca_JAVA_API.controller;
 
 import com.ApiJava.Biblioteca_JAVA_API.dto.Livro.DadosCadastroLivro;
+import com.ApiJava.Biblioteca_JAVA_API.dto.Livro.DadosLivroDevolucao;
 import com.ApiJava.Biblioteca_JAVA_API.dto.Livro.DadosLivros;
 import com.ApiJava.Biblioteca_JAVA_API.dto.Usuario.DadosUsuarioEmail;
 import com.ApiJava.Biblioteca_JAVA_API.service.LivroService;
@@ -44,7 +45,7 @@ public class LivroController {
         return ResponseEntity.ok(dados);
     }
 
-    @PostMapping("/{id}/alugar")
+    @PostMapping("/alugar/{id}")
     @Transactional
     public ResponseEntity alugarLivro(@PathVariable Long id, @RequestBody DadosUsuarioEmail dadosUsuario){
         service.alugarLivro(id,dadosUsuario);
@@ -52,7 +53,9 @@ public class LivroController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("{id}/notificar")
+
+
+    @PostMapping("{id}/desejo")
     public ResponseEntity listarComoDesejo(@PathVariable Long id, @RequestBody DadosUsuarioEmail dadosUsuario){
         service.listarComoDesejo(id, dadosUsuario);
 
