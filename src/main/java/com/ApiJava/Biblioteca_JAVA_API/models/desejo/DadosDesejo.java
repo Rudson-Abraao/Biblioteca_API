@@ -4,8 +4,9 @@ import com.ApiJava.Biblioteca_JAVA_API.models.livro.Livro;
 import com.ApiJava.Biblioteca_JAVA_API.models.usuario.Usuario;
 
 public record DadosDesejo(
-        Usuario usuario,
-        Livro livro
+        Long idDesejo,
+        Long idLivro,
+        String tituloLivro
 
 ) {
 }

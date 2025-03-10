@@ -32,11 +32,11 @@ public class DesejoController {
 //    }
 
     // ADMIN
-    @GetMapping
-    public ResponseEntity<Page<DadosDesejo>> listarDesejos (Pageable paginacao) {
-        var page = desejoService.listarDesejos(paginacao);
-        return ResponseEntity.ok(page);
-    }
+//    @GetMapping
+//    public ResponseEntity<Page<DadosDesejo>> listarDesejos (Pageable paginacao) {
+//        var page = desejoService.listarDesejos(paginacao);
+//        return ResponseEntity.ok(page);
+//    }
 
 
     // USUARIO
@@ -44,6 +44,20 @@ public class DesejoController {
     @Transactional
     public ResponseEntity adicionarDesejo(@PathVariable Long idUsuario,@PathVariable Long idLivro){
         desejoService.adicionarDesejo(idUsuario, idLivro);
+
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("{idUsuario}")
+    public ResponseEntity<Page<DadosDesejo>> listarLivrosDesejados(@PathVariable Long idUsuario, Pageable paginacao) {
+        var page =  desejoService.listarDesejosUsuario(idUsuario,paginacao);
+        return ResponseEntity.ok(page);
+    }
+
+    @DeleteMapping("/{idDesejo}")
+    @Transactional
+    public ResponseEntity excluirDesejo (@PathVariable Long idDesejo) {
+        desejoService.excluirDesejo(idDesejo);
 
         return ResponseEntity.noContent().build();
     }
