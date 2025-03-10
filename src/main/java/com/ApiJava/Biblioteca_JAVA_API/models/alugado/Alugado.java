@@ -1,7 +1,8 @@
-package com.ApiJava.Biblioteca_JAVA_API.model;
+package com.ApiJava.Biblioteca_JAVA_API.models.alugado;
 
+import com.ApiJava.Biblioteca_JAVA_API.models.livro.Livro;
+import com.ApiJava.Biblioteca_JAVA_API.models.usuario.Usuario;
 import jakarta.persistence.*;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
 

@@ -1,9 +1,8 @@
 package com.ApiJava.Biblioteca_JAVA_API.controller;
 
-import com.ApiJava.Biblioteca_JAVA_API.dto.Livro.DadosCadastroLivro;
-import com.ApiJava.Biblioteca_JAVA_API.dto.Livro.DadosLivroDevolucao;
-import com.ApiJava.Biblioteca_JAVA_API.dto.Livro.DadosLivros;
-import com.ApiJava.Biblioteca_JAVA_API.dto.Usuario.DadosUsuarioEmail;
+import com.ApiJava.Biblioteca_JAVA_API.models.livro.DadosCadastroLivro;
+import com.ApiJava.Biblioteca_JAVA_API.models.livro.DadosLivros;
+import com.ApiJava.Biblioteca_JAVA_API.models.usuario.DadosUsuarioEmail;
 import com.ApiJava.Biblioteca_JAVA_API.service.LivroService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,10 +54,5 @@ public class LivroController {
 
 
 
-    @PostMapping("{id}/desejo")
-    public ResponseEntity listarComoDesejo(@PathVariable Long id, @RequestBody DadosUsuarioEmail dadosUsuario){
-        service.listarComoDesejo(id, dadosUsuario);
 
-        return ResponseEntity.noContent().build();
-    }
 }

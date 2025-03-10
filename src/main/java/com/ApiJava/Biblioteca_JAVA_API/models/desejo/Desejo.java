@@ -1,11 +1,12 @@
-package com.ApiJava.Biblioteca_JAVA_API.model;
+package com.ApiJava.Biblioteca_JAVA_API.models.desejo;
 
 
-import com.ApiJava.Biblioteca_JAVA_API.repository.UsuarioRepository;
+import com.ApiJava.Biblioteca_JAVA_API.models.livro.Livro;
+import com.ApiJava.Biblioteca_JAVA_API.models.usuario.Usuario;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "lista_de_desejos")
+@Table(name = "desejos")
 public class Desejo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

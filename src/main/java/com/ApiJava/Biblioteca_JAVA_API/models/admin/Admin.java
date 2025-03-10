@@ -1,4 +1,4 @@
-package com.ApiJava.Biblioteca_JAVA_API.model;
+package com.ApiJava.Biblioteca_JAVA_API.models.admin;
 
 import jakarta.persistence.*;
 

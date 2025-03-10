@@ -1,7 +1,4 @@
-package com.ApiJava.Biblioteca_JAVA_API.dto.Livro;
-
-import com.ApiJava.Biblioteca_JAVA_API.model.Genero;
-import com.ApiJava.Biblioteca_JAVA_API.model.Livro;
+package com.ApiJava.Biblioteca_JAVA_API.models.livro;
 
 public record DadosLivros(
         Long id,

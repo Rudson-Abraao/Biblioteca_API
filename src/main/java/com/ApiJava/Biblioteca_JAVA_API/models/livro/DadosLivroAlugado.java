@@ -1,8 +1,7 @@
-package com.ApiJava.Biblioteca_JAVA_API.dto.Livro;
+package com.ApiJava.Biblioteca_JAVA_API.models.livro;
 
-import com.ApiJava.Biblioteca_JAVA_API.model.Alugado;
-import com.ApiJava.Biblioteca_JAVA_API.model.Livro;
-import com.ApiJava.Biblioteca_JAVA_API.model.Usuario;
+import com.ApiJava.Biblioteca_JAVA_API.models.alugado.Alugado;
+import com.ApiJava.Biblioteca_JAVA_API.models.usuario.Usuario;
 
 import java.time.LocalDate;
 

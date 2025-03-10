@@ -1,7 +1,7 @@
-package com.ApiJava.Biblioteca_JAVA_API.dto.Desejo;
+package com.ApiJava.Biblioteca_JAVA_API.models.desejo;
 
-import com.ApiJava.Biblioteca_JAVA_API.model.Livro;
-import com.ApiJava.Biblioteca_JAVA_API.model.Usuario;
+import com.ApiJava.Biblioteca_JAVA_API.models.livro.Livro;
+import com.ApiJava.Biblioteca_JAVA_API.models.usuario.Usuario;
 
 public record DadosDesejo(
         Usuario usuario,

@@ -1,7 +1,7 @@
 package com.ApiJava.Biblioteca_JAVA_API.service;
 
-import com.ApiJava.Biblioteca_JAVA_API.dto.Usuario.DadosUsuarioCadastro;
-import com.ApiJava.Biblioteca_JAVA_API.model.Usuario;
+import com.ApiJava.Biblioteca_JAVA_API.models.usuario.DadosUsuarioCadastro;
+import com.ApiJava.Biblioteca_JAVA_API.models.usuario.Usuario;
 import com.ApiJava.Biblioteca_JAVA_API.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;

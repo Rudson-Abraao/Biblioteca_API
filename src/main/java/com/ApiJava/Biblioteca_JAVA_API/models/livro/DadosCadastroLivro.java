@@ -1,10 +1,6 @@
-package com.ApiJava.Biblioteca_JAVA_API.dto.Livro;
+package com.ApiJava.Biblioteca_JAVA_API.models.livro;
 
-import com.ApiJava.Biblioteca_JAVA_API.model.Genero;
-import jakarta.persistence.GeneratedValue;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import org.cactoos.scalar.Not;
 
 public record DadosCadastroLivro(
         @NotBlank

@@ -1,8 +1,8 @@
 package com.ApiJava.Biblioteca_JAVA_API.controller;
 
 
-import com.ApiJava.Biblioteca_JAVA_API.dto.Livro.DadosLivroDevolucao;
-import com.ApiJava.Biblioteca_JAVA_API.dto.Livro.DadosLivros;
+import com.ApiJava.Biblioteca_JAVA_API.models.livro.DadosLivroDevolucao;
+import com.ApiJava.Biblioteca_JAVA_API.models.livro.DadosLivros;
 import com.ApiJava.Biblioteca_JAVA_API.repository.AlugadoRepository;
 import com.ApiJava.Biblioteca_JAVA_API.service.AlugadoService;
 import com.ApiJava.Biblioteca_JAVA_API.service.EmailService;
@@ -10,12 +10,9 @@ import com.ApiJava.Biblioteca_JAVA_API.service.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("alugados")

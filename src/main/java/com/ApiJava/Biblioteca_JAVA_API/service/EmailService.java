@@ -1,8 +1,7 @@
 package com.ApiJava.Biblioteca_JAVA_API.service;
 
 
-import com.ApiJava.Biblioteca_JAVA_API.model.Alugado;
-import com.ApiJava.Biblioteca_JAVA_API.model.Livro;
+import com.ApiJava.Biblioteca_JAVA_API.models.livro.Livro;
 import com.ApiJava.Biblioteca_JAVA_API.repository.DesejoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,7 +1,7 @@
 package com.ApiJava.Biblioteca_JAVA_API.controller;
 
 
-import com.ApiJava.Biblioteca_JAVA_API.dto.Usuario.DadosUsuarioCadastro;
+import com.ApiJava.Biblioteca_JAVA_API.models.usuario.DadosUsuarioCadastro;
 import com.ApiJava.Biblioteca_JAVA_API.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

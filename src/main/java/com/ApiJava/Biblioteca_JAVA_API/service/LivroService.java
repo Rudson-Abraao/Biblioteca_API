@@ -1,11 +1,11 @@
 package com.ApiJava.Biblioteca_JAVA_API.service;
 
-import com.ApiJava.Biblioteca_JAVA_API.dto.Livro.DadosCadastroLivro;
-import com.ApiJava.Biblioteca_JAVA_API.dto.Livro.DadosLivros;
-import com.ApiJava.Biblioteca_JAVA_API.dto.Usuario.DadosUsuarioEmail;
-import com.ApiJava.Biblioteca_JAVA_API.model.Alugado;
-import com.ApiJava.Biblioteca_JAVA_API.model.Desejo;
-import com.ApiJava.Biblioteca_JAVA_API.model.Livro;
+import com.ApiJava.Biblioteca_JAVA_API.models.livro.DadosCadastroLivro;
+import com.ApiJava.Biblioteca_JAVA_API.models.livro.DadosLivros;
+import com.ApiJava.Biblioteca_JAVA_API.models.usuario.DadosUsuarioEmail;
+import com.ApiJava.Biblioteca_JAVA_API.models.alugado.Alugado;
+import com.ApiJava.Biblioteca_JAVA_API.models.desejo.Desejo;
+import com.ApiJava.Biblioteca_JAVA_API.models.livro.Livro;
 import com.ApiJava.Biblioteca_JAVA_API.repository.AlugadoRepository;
 import com.ApiJava.Biblioteca_JAVA_API.repository.DesejoRepository;
 import com.ApiJava.Biblioteca_JAVA_API.repository.LivroRepository;
@@ -13,7 +13,6 @@ import com.ApiJava.Biblioteca_JAVA_API.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -90,18 +89,7 @@ public class LivroService {
 
     }
 
-    public void listarComoDesejo(Long id, DadosUsuarioEmail dadosUsuario) {
-        var livro = repository.findById(id);
-        var usuario = usuarioRepository.buscaUsuario(dadosUsuario.emailUsuario());
 
-        if (livro.isPresent() && usuario.isPresent()){
-            var livroDesejado = livro.get();
-            var usuarioDesejando = usuario.get();
-
-            desejoRepository.save(new Desejo(livroDesejado, usuarioDesejando));
-
-        }
-    }
 
 
 

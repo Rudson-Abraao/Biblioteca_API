@@ -1,4 +1,4 @@
-package com.ApiJava.Biblioteca_JAVA_API.dto.Usuario;
+package com.ApiJava.Biblioteca_JAVA_API.models.usuario;
 
 
 import jakarta.validation.constraints.NotBlank;

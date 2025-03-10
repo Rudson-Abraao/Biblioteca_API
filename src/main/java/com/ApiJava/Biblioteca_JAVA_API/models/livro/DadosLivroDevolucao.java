@@ -1,4 +1,4 @@
-package com.ApiJava.Biblioteca_JAVA_API.dto.Livro;
+package com.ApiJava.Biblioteca_JAVA_API.models.livro;
 
 import jakarta.validation.constraints.NotNull;
 
