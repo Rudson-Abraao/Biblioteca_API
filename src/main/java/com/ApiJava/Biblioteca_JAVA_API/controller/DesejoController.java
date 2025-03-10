@@ -2,7 +2,7 @@ package com.ApiJava.Biblioteca_JAVA_API.controller;
 
 
 import com.ApiJava.Biblioteca_JAVA_API.models.desejo.DadosDesejo;
-import com.ApiJava.Biblioteca_JAVA_API.models.usuario.DadosUsuarioEmail;
+import com.ApiJava.Biblioteca_JAVA_API.models.desejo.DadosTodosDesejos;
 import com.ApiJava.Biblioteca_JAVA_API.service.DesejoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,11 +32,11 @@ public class DesejoController {
 //    }
 
     // ADMIN
-//    @GetMapping
-//    public ResponseEntity<Page<DadosDesejo>> listarDesejos (Pageable paginacao) {
-//        var page = desejoService.listarDesejos(paginacao);
-//        return ResponseEntity.ok(page);
-//    }
+    @GetMapping
+    public ResponseEntity<Page<DadosTodosDesejos>> listarDesejos (Pageable paginacao) {
+        var page = desejoService.listarTodosDesejos(paginacao);
+        return ResponseEntity.ok(page);
+    }
 
 
     // USUARIO
